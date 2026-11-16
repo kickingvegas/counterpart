@@ -16,7 +16,7 @@
 
 .PHONY: tests texinfo-url-to-info-tests
 
-SRC_DIR=../lisp
+SRC_DIR=../src
 
 tests: texinfo-url-to-info-tests
 

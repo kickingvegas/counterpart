@@ -42,12 +42,12 @@
 # To setup for new sprint development:
 #   $ make new-sprint
 
-LISP_DIR=./lisp
+SRC_DIR=./src
 PACKAGE_NAME=texinfo-url-to-info
-MAIN_EL=$(realpath $(LISP_DIR)/$(PACKAGE_NAME).el)
+MAIN_PY=$(realpath $(SRC_DIR)/$(PACKAGE_NAME).py)
 
 TIMESTAMP := $(shell /bin/date "+%Y%m%d_%H%M%S")
-VERSION := $(shell ./scripts/read-version.sh $(MAIN_EL))
+VERSION := $(shell ./scripts/read-version.sh $(MAIN_PY))
 # BUMP_LEVEL: major|minor|patch|prerelease|build
 BUMP_LEVEL=patch
 VERSION_BUMP := $(shell python -m semver bump $(BUMP_LEVEL) $(VERSION))
@@ -74,19 +74,19 @@ status
 
 ## Run test regression
 tests:
-	$(MAKE) -C $(LISP_DIR) $@
+	$(MAKE) -C $(SRC_DIR) $@
 
 tests/%:
 	$(MAKE) -C tests $*
 
 regression:
-	$(MAKE) -C $(LISP_DIR) $@
+	$(MAKE) -C $(SRC_DIR) $@
 
 package-lint:
-	$(MAKE) -C $(LISP_DIR) $@
+	$(MAKE) -C $(SRC_DIR) $@
 
 clean:
-	$(MAKE) -C $(LISP_DIR) $@
+	$(MAKE) -C $(SRC_DIR) $@
 	$(MAKE) -C docs $@
 
 docs:
@@ -94,7 +94,7 @@ docs:
 
 ## Bump Patch Version
 bump-pkg:
-	sed -i 's/;; Package-Version: $(VERSION)/;; Package-Version: $(VERSION_BUMP)/' $(MAIN_EL)
+	sed -i 's/VERSION = "$(VERSION)"/VERSION = "$(VERSION_BUMP)"/' $(MAIN_PY)
 
 # bump-pkg-info: VERSION_BUMP:=$(shell python -m semver nextver $(VERSION) $(BUMP_LEVEL))
 bump-pkg-info:
@@ -103,7 +103,7 @@ bump-pkg-info:
 
 bump: bump-pkg bump-pkg-info
 	git commit -m 'Bump version to $(VERSION_BUMP)' \
-$(MAIN_EL) \
+$(MAIN_PY) \
 docs/$(PACKAGE_NAME).org \
 docs/$(PACKAGE_NAME).texi
 	git push
