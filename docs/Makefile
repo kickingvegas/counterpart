@@ -21,7 +21,7 @@ else
 endif
 
 TIMESTAMP := $(shell /bin/date "+%Y%m%d_%H%M%S")
-PKG_NAME=texinfo-url-to-info
+PKG_NAME=counterpart
 ORG_FILES :=					\
 $(PKG_NAME).org					\
 sponsorship.org

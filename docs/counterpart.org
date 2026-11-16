@@ -1,28 +1,28 @@
 #+startup: overview nologdone
 #+startup: showeverything
-#+TITLE: texinfo-url-to-info User Guide
+#+TITLE: counterpart User Guide
 #+SUBTITLE: for version {{{version}}}
 #+AUTHOR: Charles Y. Choi
 #+EMAIL: kickingvegas@gmail.com
 #+OPTIONS: ':t toc:t author:t email:t H:4 f:t
 #+LANGUAGE: en
-#+MACRO: version 0.0.1-rc.1
+#+MACRO: version 0.0.1-rc.2
 #+MACRO: kbd (eval (org-texinfo-kbd-macro $1))
-#+TEXINFO_FILENAME: texinfo-url-to-info.info
+#+TEXINFO_FILENAME: counterpart.info
 #+TEXINFO_CLASS: casual
 #+TEXINFO_HEADER: @syncodeindex pg cp
 #+TEXINFO_HEADER: @paragraphindent none
 #+TEXINFO_TITLEPAGE: t
 #+TEXINFO_DIR_CATEGORY: Emacs misc features
-#+TEXINFO_DIR_NAME: texinfo-url-to-info
+#+TEXINFO_DIR_NAME: counterpart
 #+TEXINFO_DIR_DESC: TBD
-#+TEXINFO_PRINTED_TITLE: texinfo-url-to-info User Guide
+#+TEXINFO_PRINTED_TITLE: counterpart User Guide
 
 Version: {{{version}}}
 
 #+TEXINFO: Copyright © 2026 @w{Charles Y. Choi}
 
-texinfo-url-to-info is TBD.
+counterpart is TBD.
     
 #+INCLUDE: "./sponsorship.org"
 
@@ -60,10 +60,10 @@ TBD
 
 * Feedback & Discussion
 #+CINDEX: Feedback
-Please report any feedback about *texinfo-url-to-info* to the [[https://github.com/kickingvegas/texinfo-url-to-info/issues][issue tracker on GitHub]].
+Please report any feedback about *counterpart* to the [[https://github.com/kickingvegas/texinfo-url-to-info/issues][issue tracker on GitHub]].
 
 #+CINDEX: Discussion
-To participate in general discussion about using *texinfo-url-to-info*, please join the [[https://github.com/kickingvegas/texinfo-url-to-info/discussions][discussion group]].
+To participate in general discussion about using *counterpart*, please join the [[https://github.com/kickingvegas/texinfo-url-to-info/discussions][discussion group]].
 
 * Sponsorship
 #+CINDEX: Sponsorship
@@ -74,9 +74,9 @@ To participate in general discussion about using *texinfo-url-to-info*, please j
 * About
 #+CINDEX: About
 
-[[https://github.com/kickingvegas/texinfo-url-to-info][texinfo-url-to-info]] was conceived and crafted by Charles Y. Choi in San Francisco, California.
+[[https://github.com/kickingvegas/texinfo-url-to-info][counterpart]] was conceived and crafted by Charles Y. Choi in San Francisco, California.
 
-Thank you for using *texinfo-url-to-info*.
+Thank you for using *counterpart*.
 
 Always choose love.
 

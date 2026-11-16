@@ -17,25 +17,25 @@
 SRC_DIR=.
 
 .PHONY: tests
-tests: texinfo-url-to-info-tests
+tests: counterpart-tests
 
-.PHONY: texinfo-url-to-info-tests
-texinfo-url-to-info-tests:
-	$(MAKE) -C $(SRC_DIR) -f Makefile-texinfo-url-to-info.make tests
+.PHONY: counterpart-tests
+counterpart-tests:
+	$(MAKE) -C $(SRC_DIR) -f Makefile-counterpart.make tests
 
 .PHONY: package-lint
 package-lint:
-	$(MAKE) -C $(SRC_DIR) -f Makefile-texinfo-url-to-info.make $@
+	$(MAKE) -C $(SRC_DIR) -f Makefile-counterpart.make $@
 
 .PHONY: regression
 regression:
-	$(MAKE) -C $(SRC_DIR) -f Makefile-texinfo-url-to-info.make $@
+	$(MAKE) -C $(SRC_DIR) -f Makefile-counterpart.make $@
 
 .PHONY: clean
 clean:
-	$(MAKE) -C $(SRC_DIR) -f Makefile-texinfo-url-to-info.make $@
+	$(MAKE) -C $(SRC_DIR) -f Makefile-counterpart.make $@
 
 
 .PHONY: copy
 copy:
-	cat texinfo-url-to-info.py | pbcopy
+	cat counterpart.py | pbcopy

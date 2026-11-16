@@ -43,7 +43,7 @@
 #   $ make new-sprint
 
 SRC_DIR=./src
-PACKAGE_NAME=texinfo-url-to-info
+PACKAGE_NAME=counterpart
 MAIN_PY=$(realpath $(SRC_DIR)/$(PACKAGE_NAME).py)
 
 TIMESTAMP := $(shell /bin/date "+%Y%m%d_%H%M%S")

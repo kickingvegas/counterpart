@@ -1,7 +1,7 @@
 \input texinfo    @c -*- texinfo -*-
 @c %**start of header
-@setfilename texinfo-url-to-info.info
-@settitle texinfo-url-to-info User Guide
+@setfilename counterpart.info
+@settitle counterpart User Guide
 @documentencoding UTF-8
 @documentlanguage en
 @syncodeindex pg cp
@@ -14,13 +14,13 @@ Copyright © 2026 Charles Y@. Choi
 
 @dircategory Emacs misc features
 @direntry
-* texinfo-url-to-info: (texinfo-url-to-info). TBD.
+* counterpart: (counterpart). TBD.
 @end direntry
 
 @finalout
 @titlepage
-@title texinfo-url-to-info User Guide
-@subtitle for version 0.0.1-rc.1
+@title counterpart User Guide
+@subtitle for version 0.0.1-rc.2
 @author Charles Y@. Choi (@email{kickingvegas@@gmail.com})
 @page
 @vskip 0pt plus 1filll
@@ -31,15 +31,15 @@ Copyright © 2026 Charles Y@. Choi
 
 @ifnottex
 @node Top
-@top texinfo-url-to-info User Guide
+@top counterpart User Guide
 
-Version: 0.0.1-rc.1
+Version: 0.0.1-rc.2
 
 Copyright © 2026 @w{Charles Y. Choi}
 
-texinfo-url-to-info is TBD@.
+counterpart is TBD@.
 
-If you enjoy using texinfo-url-to-info@comma{} please consider buying me a coffee to help support its development and maintenance.
+If you enjoy using counterpart@comma{} please consider buying me a coffee to help support its development and maintenance.
 
 @uref{https://www.buymeacoffee.com/kickingvegas}
 
@@ -82,17 +82,17 @@ TBD
 @chapter Feedback & Discussion
 
 @cindex Feedback
-Please report any feedback about @strong{texinfo-url-to-info} to the @uref{https://github.com/kickingvegas/texinfo-url-to-info/issues, issue tracker on GitHub}.
+Please report any feedback about @strong{counterpart} to the @uref{https://github.com/kickingvegas/counterpart/issues, issue tracker on GitHub}.
 
 @cindex Discussion
-To participate in general discussion about using @strong{texinfo-url-to-info}@comma{} please join the @uref{https://github.com/kickingvegas/texinfo-url-to-info/discussions, discussion group}.
+To participate in general discussion about using @strong{counterpart}@comma{} please join the @uref{https://github.com/kickingvegas/counterpart/discussions, discussion group}.
 
 @node Sponsorship
 @chapter Sponsorship
 
 @cindex Sponsorship
 
-If you enjoy using texinfo-url-to-info@comma{} please consider buying me a coffee to help support its development and maintenance.
+If you enjoy using counterpart@comma{} please consider buying me a coffee to help support its development and maintenance.
 
 @uref{https://www.buymeacoffee.com/kickingvegas}
 
@@ -101,9 +101,9 @@ If you enjoy using texinfo-url-to-info@comma{} please consider buying me a coffe
 
 @cindex About
 
-@uref{https://github.com/kickingvegas/texinfo-url-to-info, texinfo-url-to-info} was conceived and crafted by Charles Y@. Choi in San Francisco@comma{} California.
+@uref{https://github.com/kickingvegas/counterpart, counterpart} was conceived and crafted by Charles Y@. Choi in San Francisco@comma{} California.
 
-Thank you for using @strong{texinfo-url-to-info}.
+Thank you for using @strong{counterpart}.
 
 Always choose love.
 
