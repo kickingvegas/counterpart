@@ -1,0 +1,86 @@
+* texinfo-url-to-info - Open in Emacs Info
+
+[[https://support.apple.com/en-gb/guide/shortcuts-mac/apdf22b0444c/mac][macOS Shortcut]] to open a Texinfo generated web page in [[https://www.gnu.org/software/emacs/manual/html_node/info/index.html][GNU Emacs Info]].
+
+Given the URL of a web page generated from [[https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html][Texinfo]], this Shortcut opens its counterpart in Emacs Info.
+
+This code only works on Texinfo HTML generated with one page per node.
+
+
+* Requirements
+
+- macOS 15.7 (Sequoia) +
+- [[https://www.gnu.org/software/emacs/][GNU Emacs]] 30.1+
+- Safari 26+
+- Python 3+
+
+While not strictly required, no configuration is required if Scrim is installed.
+
+- [[http://yummymelon.com/scrim/][Scrim]] v1.0+
+
+* Install
+
+Install the iCloud Shortcut by clicking the link below:
+
+- Open in Emacs Info Shortcut
+
+If you have Scrim installed, you are ready to go.
+
+Alternately you can edit the Shortcut to use ~emacsclient~. This requires you to set the following variables in the Python script accordingly:
+
+#+begin_src python
+  use_scrim = False
+  # Set to your local configuration if use_scrim = False
+  emacsclient_path = "<path to emacsclient>"
+#+end_src
+
+* Usage
+TBD
+
+* Known Issues
+TBD
+
+
+* Sponsorship
+
+If you enjoy using *texinfo-url-to-info*, please consider buying me a coffee to help support its development and maintenance.
+
+[[https://www.buymeacoffee.com/kickingvegas][http://yummymelon.com/devnull/theme/images/icons/buymecoffee.png]]
+
+Please star and share this project to others as well. Thank you!
+
+
+* Acknowledgments
+
+A heartfelt thanks to all the contributors to the GNU Emacs ecosystem from which *texinfo-url-to-info* builds from. This work would not be possible without your efforts.
+
+https://www.gnu.org/software/emacs/manual/html_node/ccmode/index.html
+
+
+https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html
+
+
+https://www.gnu.org/software/texinfo/manual/texinfo/html_node/Introducing-Lists.html
+
+
+https://kickingvegas.github.io/anju/Mode-Line-Features.html
+
+
+https://orgmode.org/manual/Motion.html
+https://orgmode.org/guide/Sparse-Trees.html
+
+
+https://docs.magit.vc/magit/References-Buffer.html
+
+
+https://www.gnu.org/software/coreutils/manual/html_node/ls-invocation.html
+
+
+https://www.gnu.org/software/bash/manual/html_node/index.html
+
+
+
+
+# Local Variables:
+# burnish-backend: html
+# End:
