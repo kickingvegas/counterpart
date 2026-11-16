@@ -1,4 +1,4 @@
-;;; texinfo-url-to-info-test-utils.el --- TBD -*- lexical-binding: t; -*-
+;;; counterpart-test-utils.el --- TBD -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2026 Charles Y. Choi
 
@@ -25,13 +25,13 @@
 ;;; Code:
 (require 'ert)
 
-(defun texinfo-url-to-infot-setup ()
+(defun counterpartt-setup ()
   "Test setup function."
   )
 
-(defun texinfo-url-to-infot-breakdown (&optional clear)
+(defun counterpartt-breakdown (&optional clear)
   "Test breakdown function, if CLEAR is non-nil then clear state."
   )
 
-(provide 'texinfo-url-to-info-test-utils)
-;;; texinfo-url-to-info-test-utils.el ends here
+(provide 'counterpart-test-utils)
+;;; counterpart-test-utils.el ends here

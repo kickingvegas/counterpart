@@ -16,13 +16,13 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=texinfo-url-to-info
+PACKAGE_NAME=counterpart
 
 ELISP_INCLUDES=
 
 ELISP_PACKAGES=
 
-ELISP_TEST_INCLUDES=texinfo-url-to-info-test-utils.el
+ELISP_TEST_INCLUDES=counterpart-test-utils.el
 
 
 include Makefile--rules.make

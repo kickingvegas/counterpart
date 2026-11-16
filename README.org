@@ -1,4 +1,6 @@
-* texinfo-url-to-info - Open in Emacs Info
+* Counterpart - Open Texinfo Web Page in Emacs Info
+
+THIS PROJECT IS WIP.
 
 [[https://support.apple.com/en-gb/guide/shortcuts-mac/apdf22b0444c/mac][macOS Shortcut]] to open a Texinfo generated web page in [[https://www.gnu.org/software/emacs/manual/html_node/info/index.html][GNU Emacs Info]].
 
@@ -43,7 +45,7 @@ TBD
 
 * Sponsorship
 
-If you enjoy using *texinfo-url-to-info*, please consider buying me a coffee to help support its development and maintenance.
+If you enjoy using *counterpart*, please consider buying me a coffee to help support its development and maintenance.
 
 [[https://www.buymeacoffee.com/kickingvegas][http://yummymelon.com/devnull/theme/images/icons/buymecoffee.png]]
 
@@ -52,7 +54,7 @@ Please star and share this project to others as well. Thank you!
 
 * Acknowledgments
 
-A heartfelt thanks to all the contributors to the GNU Emacs ecosystem from which *texinfo-url-to-info* builds from. This work would not be possible without your efforts.
+A heartfelt thanks to all the contributors to the GNU Emacs ecosystem from which *counterpart* builds from. This work would not be possible without your efforts.
 
 https://www.gnu.org/software/emacs/manual/html_node/ccmode/index.html
 

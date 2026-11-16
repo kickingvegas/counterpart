@@ -1,4 +1,4 @@
-;;; test-texinfo-url-to-info.el --- texinfo-url-to-info Tests -*- lexical-binding: t; -*-
+;;; test-counterpart.el --- counterpart Tests -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2026 Charles Y. Choi
 
@@ -25,9 +25,9 @@
 ;;; Code:
 
 (require 'ert)
-(require 'texinfo-url-to-info-test-utils)
-(require 'texinfo-url-to-info)
+(require 'counterpart-test-utils)
+(require 'counterpart)
 
 
-(provide 'test-texinfo-url-to-info)
-;;; test-texinfo-url-to-info.el ends here
+(provide 'test-counterpart)
+;;; test-counterpart.el ends here
