@@ -1,8 +1,8 @@
-;;; test-texinfo-url-to-info.el --- texinfo-url-to-info Tests -*- lexical-binding: t; -*-
+;;; counterpart-test-utils.el --- TBD -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2026 Charles Y. Choi
 
-;; Author: Charles Choi <kickingvegas@gmail.com>
+;; Author: Charles Y. Choi <kickingvegas@gmail.com>
 ;; Keywords: tools
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -23,11 +23,15 @@
 ;;
 
 ;;; Code:
-
 (require 'ert)
-(require 'texinfo-url-to-info-test-utils)
-(require 'texinfo-url-to-info)
 
+(defun counterpartt-setup ()
+  "Test setup function."
+  )
 
-(provide 'test-texinfo-url-to-info)
-;;; test-texinfo-url-to-info.el ends here
+(defun counterpartt-breakdown (&optional clear)
+  "Test breakdown function, if CLEAR is non-nil then clear state."
+  )
+
+(provide 'counterpart-test-utils)
+;;; counterpart-test-utils.el ends here

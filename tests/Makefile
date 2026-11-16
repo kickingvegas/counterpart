@@ -14,11 +14,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-.PHONY: tests texinfo-url-to-info-tests
+.PHONY: tests counterpart-tests
 
 SRC_DIR=../src
 
-tests: texinfo-url-to-info-tests
+tests: counterpart-tests
 
-texinfo-url-to-info-tests:
+counterpart-tests:
 	$(MAKE) -C $(SRC_DIR) $@
