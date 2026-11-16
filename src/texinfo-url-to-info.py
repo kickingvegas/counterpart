@@ -29,12 +29,12 @@ from subprocess import call
 import re
 from urllib.parse import quote, unquote, urlencode
 
+VERSION = 0.0.0
+
 use_scrim = True
 
 # Set to your local configuration if use_scrim = False
 emacsclient_path = "/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/"
-
-urlpath = sys.argv[1]
 
 def cc_texinfo_urlpath_to_info(urlpath):
     "Convert urlpath to a Info node reference."
@@ -90,7 +90,10 @@ def cc_open_info_via_scrim(urlpath):
     sys.stdout.write("{0}\n".format(url))
     call(["open", url])
 
-if use_scrim:
-    cc_open_info_via_scrim(urlpath)
-else:
-    cc_open_info_via_emacsclient(urlpath)
+if __name__ == "__main__":
+    urlpath = sys.argv[1]
+
+    if use_scrim:
+        cc_open_info_via_scrim(urlpath)
+    else:
+        cc_open_info_via_emacsclient(urlpath)
