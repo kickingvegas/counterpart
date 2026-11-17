@@ -1,6 +1,6 @@
 #+startup: overview nologdone
 #+startup: showeverything
-#+TITLE: counterpart User Guide
+#+TITLE: Counterpart User Guide
 #+SUBTITLE: for version {{{version}}}
 #+AUTHOR: Charles Y. Choi
 #+EMAIL: kickingvegas@gmail.com
@@ -14,9 +14,9 @@
 #+TEXINFO_HEADER: @paragraphindent none
 #+TEXINFO_TITLEPAGE: t
 #+TEXINFO_DIR_CATEGORY: Emacs misc features
-#+TEXINFO_DIR_NAME: counterpart
+#+TEXINFO_DIR_NAME: Counterpart
 #+TEXINFO_DIR_DESC: TBD
-#+TEXINFO_PRINTED_TITLE: counterpart User Guide
+#+TEXINFO_PRINTED_TITLE: Counterpart User Guide
 
 Version: {{{version}}}
 
@@ -60,10 +60,10 @@ TBD
 
 * Feedback & Discussion
 #+CINDEX: Feedback
-Please report any feedback about *counterpart* to the [[https://github.com/kickingvegas/texinfo-url-to-info/issues][issue tracker on GitHub]].
+Please report any feedback about *counterpart* to the [[https://github.com/kickingvegas/counterpart/issues][issue tracker on GitHub]].
 
 #+CINDEX: Discussion
-To participate in general discussion about using *counterpart*, please join the [[https://github.com/kickingvegas/texinfo-url-to-info/discussions][discussion group]].
+To participate in general discussion about using *counterpart*, please join the [[https://github.com/kickingvegas/counterpart/discussions][discussion group]].
 
 * Sponsorship
 #+CINDEX: Sponsorship
@@ -74,7 +74,7 @@ To participate in general discussion about using *counterpart*, please join the 
 * About
 #+CINDEX: About
 
-[[https://github.com/kickingvegas/texinfo-url-to-info][counterpart]] was conceived and crafted by Charles Y. Choi in San Francisco, California.
+[[https://github.com/kickingvegas/counterpart][counterpart]] was conceived and crafted by Charles Y. Choi in San Francisco, California.
 
 Thank you for using *counterpart*.
 
@@ -96,3 +96,9 @@ Index for this user guide.
 :END:
 
 Variables, functions, commands, and menus referenced by this user guide.
+
+
+
+# Local Variables:
+# burnish-backend: kvtexinfo
+# End:
