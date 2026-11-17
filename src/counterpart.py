@@ -45,6 +45,8 @@ def cc_texinfo_urlpath_to_info(urlpath):
         manual = "coreutils"
     elif urlpath.find("/software/bash") >= 0:
         manual = "bash"
+    elif urlpath.find("/software/make") >= 0:
+        manual = "make"
     else:
         manual = os.path.basename(os.path.dirname(urlpath))
 

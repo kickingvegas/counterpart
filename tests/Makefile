@@ -16,9 +16,15 @@
 
 .PHONY: tests counterpart-tests
 
-SRC_DIR=../src
+SRC_DIR=src
+PROJECT=$(abspath $(shell pwd)/..)
+PYTHONPATH=$(PROJECT)/$(SRC_DIR)
 
-tests: counterpart-tests
+.PHONY: clean
+test:
+	PYTHONPATH=$(PYTHONPATH) python -m unittest test-counterpart.py
 
-counterpart-tests:
-	$(MAKE) -C $(SRC_DIR) $@
+.PHONY: clean
+clean:
+	rm -rf __pycache__
+	rm -f *.pyc

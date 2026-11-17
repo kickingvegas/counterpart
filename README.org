@@ -2,11 +2,15 @@
 
 THIS PROJECT IS WIP.
 
-[[https://support.apple.com/en-gb/guide/shortcuts-mac/apdf22b0444c/mac][macOS Shortcut]] to open a Texinfo generated web page in [[https://www.gnu.org/software/emacs/manual/html_node/info/index.html][GNU Emacs Info]].
+Counterpart is a [[https://support.apple.com/en-gb/guide/shortcuts-mac/apdf22b0444c/mac][macOS Shortcut]] to open a [[https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html][Texinfo]] node in [[https://www.gnu.org/software/emacs/manual/html_node/info/index.html][GNU Emacs Info]] from its corresponding exported web page.
 
-Given the URL of a web page generated from [[https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html][Texinfo]], this Shortcut opens its counterpart in Emacs Info.
+The use case is as follows:
 
-This code only works on Texinfo HTML generated with one page per node.
+1. The Safari web browser is displaying a web page that has been generated via Texinfo HTML export.
+2. Running the macOS Shortcut "Open in Emacs Info" will open that web page's counterpart in GNU Emacs Info.
+
+      
+Counterpart only works on Texinfo HTML generated with one page per node.
 
 
 * Requirements
@@ -37,7 +41,13 @@ Alternately you can edit the Shortcut to use ~emacsclient~. This requires you to
 #+end_src
 
 * Usage
-TBD
+
+1. From Safari, open a web page generated via Texinfo HTML export.
+   
+2. From the main menu bar, click on the Shortcuts icon and choose the menu item "Open in Emacs Info".
+   [[file:docs/images/counterpart-shortcuts-menu.png]]
+
+3. In Emacs Info, the counterpart node of the web page should be 
 
 * Known Issues
 TBD
@@ -80,7 +90,7 @@ https://www.gnu.org/software/coreutils/manual/html_node/ls-invocation.html
 
 https://www.gnu.org/software/bash/manual/html_node/index.html
 
-
+https://www.gnu.org/software/make/manual/html_node/MAKEFILES-Variable.html
 
 
 # Local Variables:
