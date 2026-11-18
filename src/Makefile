@@ -17,23 +17,14 @@
 SRC_DIR=.
 
 .PHONY: tests
-tests: counterpart-tests
+test:
+	$(MAKE) -C ../tests test
 
-.PHONY: counterpart-tests
-counterpart-tests:
-	$(MAKE) -C $(SRC_DIR) -f Makefile-counterpart.make tests
-
-.PHONY: package-lint
-package-lint:
-	$(MAKE) -C $(SRC_DIR) -f Makefile-counterpart.make $@
-
-.PHONY: regression
-regression:
-	$(MAKE) -C $(SRC_DIR) -f Makefile-counterpart.make $@
 
 .PHONY: clean
 clean:
-	$(MAKE) -C $(SRC_DIR) -f Makefile-counterpart.make $@
+	rm -rf __pycache__
+	rm -f *.pyc
 
 
 .PHONY: copy

@@ -1,14 +1,9 @@
-##
-# Copyright 2026 Charles Y. Choi
-#
-# Open Texinfo URL in Emacs Info
+## counterpart.py --- Open Texinfo URL in Emacs Info
 
-# Given the URL of a web page generated from Texinfo, this code tries open its
-# counterpart in GNU Emacs Info using Scrim on macOS.
+# Copyright (C) 2026 Charles Y. Choi
 
-# This code will only work on Texinfo HTML generated with one page per node.
-
-# http://yummymelon.com/scrim/
+# Author: Charles Choi <kickingvegas@gmail.com>
+# Keywords: tools
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,6 +18,18 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+## Commentary
+
+# Counterpart is a macOS utility to open the counterpart of a Texinfo web page
+# in GNU Emacs Info.
+
+# Counterpart requires usage of the Safari web browser and installation of an
+# iCloud Shortcut.
+
+# Counterpart only works on Texinfo HTML generated with one page per node.
+
+## Code
+
 import os
 import sys
 from subprocess import call
@@ -36,16 +43,26 @@ use_scrim = True
 # Set to your local configuration if use_scrim = False
 emacsclient_path = "/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/"
 
+
+def is_gnu_manual(urlpath):
+    "Predicate if urlpath is a GNU manual that is not Emacs."
+    pat = re.compile(r"^/software/(\w*)/")
+
+    match = pat.search(urlpath)
+
+    if match:
+        result = match.group(1)
+    else:
+        result = None
+
+    return result
+
 def cc_texinfo_urlpath_to_info(urlpath):
     "Convert urlpath to a Info node reference."
 
-    if urlpath.find("/software/texinfo") >= 0:
-        manual = "texinfo"
-    elif urlpath.find("/software/coreutils") >= 0:
-        manual = "coreutils"
-    elif urlpath.find("/software/bash") >= 0:
-        manual = "bash"
-    else:
+    manual = is_gnu_manual(urlpath)
+
+    if (not manual) or (manual == "emacs"):
         manual = os.path.basename(os.path.dirname(urlpath))
 
     if os.path.splitext(urlpath)[1] == '':
