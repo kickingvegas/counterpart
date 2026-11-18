@@ -24,6 +24,7 @@ class TestRegression(unittest.TestCase):
 
     def setUp(self):
         self.url_data = [
+            "https://www.gnu.org/software/gettext/manual/html_node/Files.html"
             "https://www.gnu.org/software/emacs/manual/html_node/ccmode/index.html",
             "https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html",
             "https://www.gnu.org/software/texinfo/manual/texinfo/html_node/Introducing-Lists.html",
@@ -42,6 +43,8 @@ class TestRegression(unittest.TestCase):
         #print(self.paths)
 
         self.data = (
+            ('/software/gettext/manual/html_node/Files.html',
+             'scrim://info?node=%28gettext%29%20Files'),
             ('/software/emacs/manual/html_node/ccmode/index.html',
              'scrim://info?node=%28ccmode%29%20Top'),
             ('/software/texinfo/manual/texinfo/html_node/index.html',

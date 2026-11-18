@@ -43,18 +43,26 @@ use_scrim = True
 # Set to your local configuration if use_scrim = False
 emacsclient_path = "/Applications/MacPorts/Emacs.app/Contents/MacOS/bin/"
 
+
+def is_gnu_manual(urlpath):
+    "Predicate if urlpath is a GNU manual that is not Emacs."
+    pat = re.compile(r"^/software/(\w*)/")
+
+    match = pat.search(urlpath)
+
+    if match:
+        result = match.group(1)
+    else:
+        result = None
+
+    return result
+
 def cc_texinfo_urlpath_to_info(urlpath):
     "Convert urlpath to a Info node reference."
 
-    if urlpath.find("/software/texinfo") >= 0:
-        manual = "texinfo"
-    elif urlpath.find("/software/coreutils") >= 0:
-        manual = "coreutils"
-    elif urlpath.find("/software/bash") >= 0:
-        manual = "bash"
-    elif urlpath.find("/software/make") >= 0:
-        manual = "make"
-    else:
+    manual = is_gnu_manual(urlpath)
+
+    if (not manual) or (manual == "emacs"):
         manual = os.path.basename(os.path.dirname(urlpath))
 
     if os.path.splitext(urlpath)[1] == '':
