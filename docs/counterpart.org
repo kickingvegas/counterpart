@@ -22,8 +22,6 @@ Version: {{{version}}}
 
 #+TEXINFO: Copyright © 2026 @w{Charles Y. Choi}
 
-THIS PROJECT IS WIP.
-
 *Counterpart* is a macOS utility to open the counterpart of a Texinfo ([[info:texinfo#Top]]) web page in GNU Emacs Info ([[info:info#Top]]).
 
 *Counterpart* requires usage of the Safari web browser and installation of an iCloud Shortcut.
@@ -113,7 +111,7 @@ To participate in general discussion about using *counterpart*, please join the 
 
 [[https://github.com/kickingvegas/counterpart][Counterpart]] was conceived and crafted by Charles Y. Choi in San Francisco, California.
 
-Thank you for using *counterpart*.
+Thank you for using *Counterpart*.
 
 Always choose love.
 
