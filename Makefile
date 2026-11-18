@@ -43,8 +43,11 @@
 #   $ make new-sprint
 
 SRC_DIR=./src
+TESTS_DIR=./tests
 PACKAGE_NAME=counterpart
 MAIN_PY=$(realpath $(SRC_DIR)/$(PACKAGE_NAME).py)
+PYTHON_EXEC=python3
+PYTHONPATH=$(shell pwd)/src
 
 TIMESTAMP := $(shell /bin/date "+%Y%m%d_%H%M%S")
 VERSION := $(shell ./scripts/read-version.sh $(MAIN_PY))
@@ -53,9 +56,7 @@ BUMP_LEVEL=patch
 VERSION_BUMP := $(shell python -m semver bump $(BUMP_LEVEL) $(VERSION))
 VERSION_LAST_TAG := $(shell git tag --sort=-creatordate | head -n 1)
 
-.PHONY: tests					\
-regression					\
-package-lint					\
+.PHONY:						\
 clean						\
 create-pr					\
 bump-pkg					\
@@ -73,20 +74,14 @@ create-gh-release				\
 status
 
 ## Run test regression
-tests:
-	$(MAKE) -C $(SRC_DIR) $@
 
-tests/%:
-	$(MAKE) -C tests $*
-
-regression:
-	$(MAKE) -C $(SRC_DIR) $@
-
-package-lint:
-	$(MAKE) -C $(SRC_DIR) $@
+.PHONY: test
+test:
+	$(MAKE) -C $(TESTS_DIR) test
 
 clean:
 	$(MAKE) -C $(SRC_DIR) $@
+	$(MAKE) -C $(TESTS_DIR) $@
 	$(MAKE) -C docs $@
 
 docs:
