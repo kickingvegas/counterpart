@@ -36,7 +36,7 @@ from subprocess import call
 import re
 from urllib.parse import quote, unquote, urlencode
 
-VERSION = "0.1.0"
+VERSION = "0.1.1-rc.1"
 
 use_scrim = True
 
