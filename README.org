@@ -1,7 +1,5 @@
 * Counterpart - Open Texinfo Web Page in Emacs Info
 
-THIS PROJECT IS WIP.
-
 *Counterpart* is a macOS utility to open the counterpart of a [[https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html][Texinfo]] web page in [[https://www.gnu.org/software/emacs/manual/html_node/info/index.html][GNU Emacs Info]].
 
 *Counterpart* requires usage of the Safari web browser and installation of an [[https://support.apple.com/en-gb/guide/shortcuts-mac/apdf22b0444c/mac][iCloud Shortcut]].

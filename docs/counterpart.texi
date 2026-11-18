@@ -20,7 +20,7 @@ Copyright © 2026 Charles Y@. Choi
 @finalout
 @titlepage
 @title Counterpart User Guide
-@subtitle for version 0.0.1-rc.3
+@subtitle for version 0.0.1-rc.4
 @author Charles Y@. Choi (@email{kickingvegas@@gmail.com})
 @page
 @vskip 0pt plus 1filll
@@ -33,11 +33,9 @@ Copyright © 2026 Charles Y@. Choi
 @node Top
 @top Counterpart User Guide
 
-Version: 0.0.1-rc.3
+Version: 0.0.1-rc.4
 
 Copyright © 2026 @w{Charles Y. Choi}
-
-THIS PROJECT IS WIP@.
 
 @strong{Counterpart} is a macOS utility to open the counterpart of a Texinfo (@ref{Top,,,texinfo,}) web page in GNU Emacs Info (@ref{Top,,,info,}).
 
@@ -155,7 +153,7 @@ If you enjoy using @strong{Counterpart}@comma{} please consider buying me a coff
 
 @uref{https://github.com/kickingvegas/counterpart, Counterpart} was conceived and crafted by Charles Y@. Choi in San Francisco@comma{} California.
 
-Thank you for using @strong{counterpart}.
+Thank you for using @strong{Counterpart}.
 
 Always choose love.
 
