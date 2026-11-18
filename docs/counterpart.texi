@@ -1,7 +1,7 @@
 \input texinfo    @c -*- texinfo -*-
 @c %**start of header
 @setfilename counterpart.info
-@settitle counterpart User Guide
+@settitle Counterpart User Guide
 @documentencoding UTF-8
 @documentlanguage en
 @syncodeindex pg cp
@@ -14,12 +14,12 @@ Copyright © 2026 Charles Y@. Choi
 
 @dircategory Emacs misc features
 @direntry
-* counterpart: (counterpart). TBD.
+* Counterpart: (counterpart). Counterpart is a macOS utility to open the counterpart of a Texinfo web page in GNU Emacs Info.
 @end direntry
 
 @finalout
 @titlepage
-@title counterpart User Guide
+@title Counterpart User Guide
 @subtitle for version 0.0.1-rc.3
 @author Charles Y@. Choi (@email{kickingvegas@@gmail.com})
 @page
@@ -31,68 +31,120 @@ Copyright © 2026 Charles Y@. Choi
 
 @ifnottex
 @node Top
-@top counterpart User Guide
+@top Counterpart User Guide
 
 Version: 0.0.1-rc.3
 
 Copyright © 2026 @w{Charles Y. Choi}
 
-counterpart is TBD@.
+THIS PROJECT IS WIP@.
 
-If you enjoy using counterpart@comma{} please consider buying me a coffee to help support its development and maintenance.
+@strong{Counterpart} is a macOS utility to open the counterpart of a Texinfo (@ref{Top,,,texinfo,}) web page in GNU Emacs Info (@ref{Top,,,info,}).
+
+@strong{Counterpart} requires usage of the Safari web browser and installation of an iCloud Shortcut.
+
+@strong{Counterpart} only works on Texinfo HTML generated with one page per node.
+
+If you enjoy using @strong{Counterpart}@comma{} please consider buying me a coffee to help support its development and maintenance.
 
 @uref{https://www.buymeacoffee.com/kickingvegas}
 
 @end ifnottex
 
 @menu
-* Features::
 * Requirements::
 * Install::
+* Usage::
 * Feedback & Discussion::
 * Sponsorship::
 * About::
 * Acknowledgments::
 * Main Index::
-* Variable Index::
 @end menu
-
-@node Features
-@chapter Features
-
-@cindex Features
-
-TBD
 
 @node Requirements
 @chapter Requirements
 
 @cindex Requirements
 
-TBD
+
+@itemize
+@item
+macOS 15.7 (Sequoia) +
+@item
+GNU Emacs 30.1+
+@item
+Safari 26+
+@item
+Python 3+
+@end itemize
+
+While not strictly required@comma{} no configuration is required if Scrim is installed.
+
+@itemize
+@item
+@uref{http://yummymelon.com/scrim/, Scrim} v1.0+
+@end itemize
 
 @node Install
 @chapter Install
 
 @cindex Install
 
-TBD
+
+Install the iCloud Shortcut by clicking the link below:
+
+@itemize
+@item
+@uref{https://www.icloud.com/shortcuts/dee5783c765443dd8c231b2cc44f8e94, Open in Emacs Info Shortcut}
+@end itemize
+
+If you have @uref{http://yummymelon.com/scrim/, Scrim} installed@comma{} you are ready to go.
+
+Alternately you can edit the Shortcut to use @code{emacsclient}. This requires you to set the following variables in the Python script accordingly:
+
+@example
+use_scrim = False
+# Set to your local configuration if use_scrim = False
+emacsclient_path = "<path to emacsclient>"
+@end example
+
+@node Usage
+@chapter Usage
+
+@enumerate
+@item
+From Safari@comma{} open a web page generated via Texinfo HTML export.
+
+@item
+From the main menu bar@comma{} click on the Shortcuts icon and choose the menu item ``Open in Emacs Info''.
+@end enumerate
+
+
+@image{images/counterpart-shortcuts-menu,,,,png}
+
+
+
+@enumerate
+@item
+The counterpart Info node of the web page should be displayed in Emacs Info.
+@end enumerate
 
 @node Feedback & Discussion
 @chapter Feedback & Discussion
 
 @cindex Feedback
-Please report any feedback about @strong{counterpart} to the @uref{https://github.com/kickingvegas/texinfo-url-to-info/issues, issue tracker on GitHub}.
+Please report any feedback about @strong{counterpart} to the @uref{https://github.com/kickingvegas/counterpart/issues, issue tracker on GitHub}.
 
 @cindex Discussion
-To participate in general discussion about using @strong{counterpart}@comma{} please join the @uref{https://github.com/kickingvegas/texinfo-url-to-info/discussions, discussion group}.
+To participate in general discussion about using @strong{counterpart}@comma{} please join the @uref{https://github.com/kickingvegas/counterpart/discussions, discussion group}.
 
 @node Sponsorship
 @chapter Sponsorship
 
 @cindex Sponsorship
 
-If you enjoy using counterpart@comma{} please consider buying me a coffee to help support its development and maintenance.
+If you enjoy using @strong{Counterpart}@comma{} please consider buying me a coffee to help support its development and maintenance.
 
 @uref{https://www.buymeacoffee.com/kickingvegas}
 
@@ -101,7 +153,7 @@ If you enjoy using counterpart@comma{} please consider buying me a coffee to hel
 
 @cindex About
 
-@uref{https://github.com/kickingvegas/texinfo-url-to-info, counterpart} was conceived and crafted by Charles Y@. Choi in San Francisco@comma{} California.
+@uref{https://github.com/kickingvegas/counterpart, Counterpart} was conceived and crafted by Charles Y@. Choi in San Francisco@comma{} California.
 
 Thank you for using @strong{counterpart}.
 
@@ -112,18 +164,13 @@ Always choose love.
 
 @cindex Acknowledgments
 
+Thanks to all the contributors to the Apple and GNU ecosystems from which @strong{Counterpart} builds from. This work would not be possible without your efforts.
+
 @node Main Index
 @chapter Main Index
 
 Index for this user guide.
 
 @printindex cp
-
-@node Variable Index
-@chapter Variable Index
-
-Variables@comma{} functions@comma{} commands@comma{} and menus referenced by this user guide.
-
-@printindex vr
 
 @bye

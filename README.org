@@ -2,11 +2,11 @@
 
 THIS PROJECT IS WIP.
 
-[[https://support.apple.com/en-gb/guide/shortcuts-mac/apdf22b0444c/mac][macOS Shortcut]] to open a Texinfo generated web page in [[https://www.gnu.org/software/emacs/manual/html_node/info/index.html][GNU Emacs Info]].
+*Counterpart* is a macOS utility to open the counterpart of a [[https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html][Texinfo]] web page in [[https://www.gnu.org/software/emacs/manual/html_node/info/index.html][GNU Emacs Info]].
 
-Given the URL of a web page generated from [[https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html][Texinfo]], this Shortcut opens its counterpart in Emacs Info.
+*Counterpart* requires usage of the Safari web browser and installation of an [[https://support.apple.com/en-gb/guide/shortcuts-mac/apdf22b0444c/mac][iCloud Shortcut]].
 
-This code only works on Texinfo HTML generated with one page per node.
+*Counterpart* only works on Texinfo HTML generated with one page per node.
 
 
 * Requirements
@@ -24,7 +24,7 @@ While not strictly required, no configuration is required if Scrim is installed.
 
 Install the iCloud Shortcut by clicking the link below:
 
-- Open in Emacs Info Shortcut
+- [[https://www.icloud.com/shortcuts/dee5783c765443dd8c231b2cc44f8e94][Open in Emacs Info Shortcut]]
 
 If you have Scrim installed, you are ready to go.
 
@@ -37,15 +37,25 @@ Alternately you can edit the Shortcut to use ~emacsclient~. This requires you to
 #+end_src
 
 * Usage
-TBD
+
+1. From Safari, open a web page generated via Texinfo HTML export.
+   
+2. From the main menu bar, click on the Shortcuts icon and choose the menu item "Open in Emacs Info".
+   [[file:docs/images/counterpart-shortcuts-menu.png]]
+
+3. The counterpart Info node of the web page should be displayed in Emacs Info.
+
 
 * Known Issues
-TBD
 
+- Heuristic method used to map Texinfo web page URL back to Info node. There are likely websites hosting Texinfo documentation where this method does not work.
 
+- Intermittent failure to map the top-level Texinfo web page back to the Top Info node.
+  
+  
 * Sponsorship
 
-If you enjoy using *counterpart*, please consider buying me a coffee to help support its development and maintenance.
+If you enjoy using *Counterpart*, please consider buying me a coffee to help support its development and maintenance.
 
 [[https://www.buymeacoffee.com/kickingvegas][http://yummymelon.com/devnull/theme/images/icons/buymecoffee.png]]
 
@@ -54,34 +64,7 @@ Please star and share this project to others as well. Thank you!
 
 * Acknowledgments
 
-A heartfelt thanks to all the contributors to the GNU Emacs ecosystem from which *counterpart* builds from. This work would not be possible without your efforts.
-
-https://www.gnu.org/software/emacs/manual/html_node/ccmode/index.html
-
-
-https://www.gnu.org/software/texinfo/manual/texinfo/html_node/index.html
-
-
-https://www.gnu.org/software/texinfo/manual/texinfo/html_node/Introducing-Lists.html
-
-
-https://kickingvegas.github.io/anju/Mode-Line-Features.html
-
-
-https://orgmode.org/manual/Motion.html
-https://orgmode.org/guide/Sparse-Trees.html
-
-
-https://docs.magit.vc/magit/References-Buffer.html
-
-
-https://www.gnu.org/software/coreutils/manual/html_node/ls-invocation.html
-
-
-https://www.gnu.org/software/bash/manual/html_node/index.html
-
-
-
+Thanks to all the contributors to the Apple and GNU ecosystems from which *Counterpart* builds from. This work would not be possible without your efforts.
 
 # Local Variables:
 # burnish-backend: html
