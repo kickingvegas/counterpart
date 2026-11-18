@@ -1,14 +1,9 @@
-##
-# Copyright 2026 Charles Y. Choi
-#
-# Open Texinfo URL in Emacs Info
+## counterpart.py --- Open Texinfo URL in Emacs Info
 
-# Given the URL of a web page generated from Texinfo, this code tries open its
-# counterpart in GNU Emacs Info using Scrim on macOS.
+# Copyright (C) 2026 Charles Y. Choi
 
-# This code will only work on Texinfo HTML generated with one page per node.
-
-# http://yummymelon.com/scrim/
+# Author: Charles Choi <kickingvegas@gmail.com>
+# Keywords: tools
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,6 +17,18 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+## Commentary
+
+# Counterpart is a macOS utility to open the counterpart of a Texinfo web page
+# in GNU Emacs Info.
+
+# Counterpart requires usage of the Safari web browser and installation of an
+# iCloud Shortcut.
+
+# Counterpart only works on Texinfo HTML generated with one page per node.
+
+## Code
 
 import os
 import sys
