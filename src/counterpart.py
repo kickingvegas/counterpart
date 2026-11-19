@@ -57,7 +57,7 @@ def is_gnu_manual(urlpath):
 
     return result
 
-def cc_texinfo_urlpath_to_info(urlpath):
+def cpt_texinfo_urlpath_to_info(urlpath):
     "Convert urlpath to a Info node reference."
 
     manual = is_gnu_manual(urlpath)
@@ -83,27 +83,27 @@ def cc_texinfo_urlpath_to_info(urlpath):
 
     return node
 
-def cc_scrim_info_url(node):
+def cpt_scrim_info_url(node):
     "Wrap node into a Scrim info URL."
     params = { "node" : node }
     info_node = urlencode(params, quote_via=quote)
     url = "scrim://info?{0}".format(info_node)
     return url
 
-def cc_open_info_via_emacsclient(urlpath):
+def cpt_open_info_via_emacsclient(urlpath):
     "Open urlpath in emacsclient."
     emacsclient_exec = os.path.join(
         emacsclient_path,
         "emacsclient")
-    node = cc_texinfo_urlpath_to_info(urlpath)
+    node = cpt_texinfo_urlpath_to_info(urlpath)
     url = "(info \"{0}\")".format(node)
     sys.stdout.write("{0}\n".format(url))
     call([emacsclient_exec, "-e", url])
 
-def cc_open_info_via_scrim(urlpath):
+def cpt_open_info_via_scrim(urlpath):
     "Open urlpath in scrim."
-    node = cc_texinfo_urlpath_to_info(urlpath)
-    url = cc_scrim_info_url(node)
+    node = cpt_texinfo_urlpath_to_info(urlpath)
+    url = cpt_scrim_info_url(node)
     sys.stdout.write("{0}\n".format(url))
     call(["open", url])
 
@@ -111,6 +111,6 @@ if __name__ == "__main__":
     urlpath = sys.argv[1]
 
     if use_scrim:
-        cc_open_info_via_scrim(urlpath)
+        cpt_open_info_via_scrim(urlpath)
     else:
-        cc_open_info_via_emacsclient(urlpath)
+        cpt_open_info_via_emacsclient(urlpath)
