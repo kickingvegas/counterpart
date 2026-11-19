@@ -81,5 +81,24 @@ class TestRegression(unittest.TestCase):
 
         self.assertEqual(control, result)
 
+
+    def test_parser(self):
+        "Test command line parser."
+        reference = "/software/texinfo/"
+        epath = "/snap/bin"
+
+        args = cpt_parse_args(["--no-shortcut"
+                               , "-p", epath
+                               , "-t", "info"
+                               , reference])
+
+        self.assertEqual(args.path, "/snap/bin")
+        self.assertEqual(args.target, "info")
+
+        self.assertFalse(args.shortcut)
+        self.assertFalse(args.execute)
+        self.assertFalse(args.shortcut)
+
+
 if __name__ == '__main__':
     unittest.main()
