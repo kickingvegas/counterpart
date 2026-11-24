@@ -58,6 +58,15 @@ If you enjoy using @strong{Counterpart}@comma{} please consider buying me a coff
 * About::
 * Acknowledgments::
 * Main Index::
+
+@detailmenu
+--- The Detailed Node Listing ---
+
+Usage
+
+* Command Line::
+
+@end detailmenu
 @end menu
 
 @node Requirements
@@ -94,7 +103,7 @@ Install the iCloud Shortcut by clicking the link below:
 
 @itemize
 @item
-@uref{https://www.icloud.com/shortcuts/dee5783c765443dd8c231b2cc44f8e94, Open in Emacs Info Shortcut}
+@uref{https://www.icloud.com/shortcuts/250ddf41e1bd466ab8329311cf3cecc6, Open in Emacs Info Shortcut}
 @end itemize
 
 If you have @uref{http://yummymelon.com/scrim/, Scrim} installed@comma{} you are ready to go.
@@ -109,6 +118,8 @@ emacsclient_path = "<path to emacsclient>"
 
 @node Usage
 @chapter Usage
+
+@cindex Usage
 
 @enumerate
 @item
@@ -127,6 +138,76 @@ From the main menu bar@comma{} click on the Shortcuts icon and choose the menu i
 @item
 The counterpart Info node of the web page should be displayed in Emacs Info.
 @end enumerate
+
+@menu
+* Command Line::
+@end menu
+
+@node Command Line
+@section Command Line
+
+@cindex Command Line
+
+The Python file @code{counterpart.py} implements most of the reference conversion for @strong{Counterpart}. 
+
+This file can be run as a stand-alone command line utility to open a Texinfo web page URL in Emacs. In this way@comma{} @strong{Counterpart} can also be used on a Linux system as this approach does not require macOS nor Safari.
+
+@subsubheading Command Line Usage
+
+The basic usage is to run @code{counterpart} with the @code{--no-shortcut} and @code{-p} (or @code{--path}) options:
+
+@example
+$ python counterpart.py --no-shortcut -p '/snap/bin' <reference>
+@end example
+
+The above invocation will generate the translated @code{<reference>} to an Info node reference.
+
+The file @code{counterpart.py} can be made executable by copying it to a directory in the @code{PATH} environment variable and turning on its file mode to executable via @code{chmod}. It is common to rename the file to have no suffix as well.
+
+
+@subsubheading Command Line Help
+
+Running @code{counterpart} with the @code{-h} or @code{--help} option will show its usage string.
+
+@example
+usage: counterpart [-h] [-v] [-s | --shortcut | --no-shortcut] [-e | --execute | --no-execute] [-p PATH] [-t @{scrim@comma{}info@}] reference
+
+Convert Texinfo web page reference to Info node.
+
+positional arguments:
+  reference             Either URL path or URL.
+
+options:
+  -h@comma{} --help            show this help message and exit
+  -v@comma{} --version         print version information and exit
+  -s@comma{} --shortcut@comma{} --no-shortcut
+                        If set@comma{} run as if invoked via macOS Shortcut.
+  -e@comma{} --execute@comma{} --no-execute
+                        Open counterpart reference. Only valid when --no-shortcut is used.
+  -p@comma{} --path PATH       Path to emacsclient. Only valid when --no-shortcut is used.
+  -t@comma{} --target @{scrim@comma{}info@}
+                        Target format. Only valid when --no-shortcut is used.
+@end example
+
+
+
+
+@subsubheading Examples
+
+Here are some examples of running @code{counterpart}.
+
+Write Info node reference to @code{stdout} from counterpart web page URL:
+
+@example
+$ counterpart --no-shortcut -p '/snap/bin' 'https://kickingvegas.github.io/triode/Features.html'
+(info "(triode) Features")
+@end example
+
+Write Info node reference to @code{stdout} from counterpart web page URL and open in Emacs via @code{emacsclient}:
+
+@example
+$ counterpart --no-shortcut --execute -p '/snap/bin' 'https://kickingvegas.github.io/triode/Features.html'
+@end example
 
 @node Feedback & Discussion
 @chapter Feedback & Discussion

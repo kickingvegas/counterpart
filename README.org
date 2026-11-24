@@ -22,7 +22,7 @@ While not strictly required, no configuration is required if Scrim is installed.
 
 Install the iCloud Shortcut by clicking the link below:
 
-- [[https://www.icloud.com/shortcuts/dee5783c765443dd8c231b2cc44f8e94][Open in Emacs Info Shortcut]]
+- [[https://www.icloud.com/shortcuts/250ddf41e1bd466ab8329311cf3cecc6][Open in Emacs Info Shortcut]]
 
 If you have Scrim installed, you are ready to go.
 
