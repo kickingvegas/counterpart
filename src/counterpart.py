@@ -39,7 +39,7 @@ import re
 from urllib.parse import quote, unquote, urlencode, urlsplit
 import argparse
 
-VERSION = "0.1.1-rc.1"
+VERSION = "0.2.0"
 
 use_scrim = True
 
