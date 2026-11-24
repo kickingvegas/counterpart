@@ -67,19 +67,38 @@ class TestRegression(unittest.TestCase):
     def test_scrim_urls(self):
         "Test Scrim Info URLs with data."
         for urlpath, control in self.data:
-            node = cc_texinfo_urlpath_to_info(urlpath)
-            result = cc_scrim_info_url(node)
+            node = cpt_texinfo_urlpath_to_info(urlpath)
+            result = cpt_scrim_info_url(node)
             self.assertEqual(result, control)
 
 
     def test_one_shot(self):
         "One shot test."
         urlpath = '/software/emacs/manual/html_node/ccmode/index.html'
-        node = cc_texinfo_urlpath_to_info(urlpath)
-        result = cc_scrim_info_url(node)
+        node = cpt_texinfo_urlpath_to_info(urlpath)
+        result = cpt_scrim_info_url(node)
         control = 'scrim://info?node=%28ccmode%29%20Top'
 
         self.assertEqual(control, result)
+
+
+    def test_parser(self):
+        "Test command line parser."
+        reference = "/software/texinfo/"
+        epath = "/snap/bin"
+
+        args = cpt_parse_args(["--no-shortcut"
+                               , "-p", epath
+                               , "-t", "info"
+                               , reference])
+
+        self.assertEqual(args.path, "/snap/bin")
+        self.assertEqual(args.target, "info")
+
+        self.assertFalse(args.shortcut)
+        self.assertFalse(args.execute)
+        self.assertFalse(args.shortcut)
+
 
 if __name__ == '__main__':
     unittest.main()

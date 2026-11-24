@@ -6,7 +6,7 @@
 #+EMAIL: kickingvegas@gmail.com
 #+OPTIONS: ':t toc:t author:t email:t H:4 f:t
 #+LANGUAGE: en
-#+MACRO: version 0.1.0
+#+MACRO: version 0.1.1-rc.1
 #+MACRO: kbd (eval (org-texinfo-kbd-macro $1))
 #+TEXINFO_FILENAME: counterpart.info
 #+TEXINFO_CLASS: casual
@@ -63,7 +63,7 @@ While not strictly required, no configuration is required if Scrim is installed.
 
 Install the iCloud Shortcut by clicking the link below:
 
-- [[https://www.icloud.com/shortcuts/dee5783c765443dd8c231b2cc44f8e94][Open in Emacs Info Shortcut]]
+- [[https://www.icloud.com/shortcuts/250ddf41e1bd466ab8329311cf3cecc6][Open in Emacs Info Shortcut]]
 
 If you have [[http://yummymelon.com/scrim/][Scrim]] installed, you are ready to go.
 
@@ -78,8 +78,9 @@ Alternately you can edit the Shortcut to use ~emacsclient~. This requires you to
 
 * Usage
 :PROPERTIES:
-:CUSTOM_ID: install
+:CUSTOM_ID: usage
 :END:
+#+CINDEX: Usage
 
 1. From Safari, open a web page generated via Texinfo HTML export.
 
@@ -91,6 +92,75 @@ Alternately you can edit the Shortcut to use ~emacsclient~. This requires you to
 
 
 3. The counterpart Info node of the web page should be displayed in Emacs Info.
+
+
+** Command Line
+:PROPERTIES:
+:CUSTOM_ID: command-line
+:END:
+#+CINDEX: Command Line
+
+The Python file ~counterpart.py~ implements most of the reference conversion for *Counterpart*. 
+
+This file can be run as a stand-alone command line utility to open a Texinfo web page URL in Emacs. In this way, *Counterpart* can also be used on a Linux system as this approach does not require macOS nor Safari.
+
+#+TEXINFO: @subsubheading Command Line Usage
+
+The basic usage is to run ~counterpart~ with the ~--no-shortcut~ and ~-p~ (or ~--path~) options:
+
+#+begin_src shell
+$ python counterpart.py --no-shortcut -p '/snap/bin' <reference>
+#+end_src
+
+The above invocation will generate the translated ~<reference>~ to an Info node reference.
+
+The file ~counterpart.py~ can be made executable by copying it to a directory in the ~PATH~ environment variable and turning on its file mode to executable via ~chmod~. It is common to rename the file to have no suffix as well.
+
+
+#+TEXINFO: @subsubheading Command Line Help
+
+Running ~counterpart~ with the ~-h~ or ~--help~ option will show its usage string.
+
+#+begin_example
+usage: counterpart [-h] [-v] [-s | --shortcut | --no-shortcut] [-e | --execute | --no-execute] [-p PATH] [-t {scrim,info}] reference
+
+Convert Texinfo web page reference to Info node.
+
+positional arguments:
+  reference             Either URL path or URL.
+
+options:
+  -h, --help            show this help message and exit
+  -v, --version         print version information and exit
+  -s, --shortcut, --no-shortcut
+                        If set, run as if invoked via macOS Shortcut.
+  -e, --execute, --no-execute
+                        Open counterpart reference. Only valid when --no-shortcut is used.
+  -p, --path PATH       Path to emacsclient. Only valid when --no-shortcut is used.
+  -t, --target {scrim,info}
+                        Target format. Only valid when --no-shortcut is used.
+#+end_example
+
+
+
+
+#+TEXINFO: @subsubheading Examples
+
+Here are some examples of running ~counterpart~.
+
+Write Info node reference to ~stdout~ from counterpart web page URL:
+
+#+begin_example
+  $ counterpart --no-shortcut -p '/snap/bin' 'https://kickingvegas.github.io/triode/Features.html'
+  (info "(triode) Features")
+#+end_example
+
+Write Info node reference to ~stdout~ from counterpart web page URL and open in Emacs via ~emacsclient~:
+
+#+begin_example
+  $ counterpart --no-shortcut --execute -p '/snap/bin' 'https://kickingvegas.github.io/triode/Features.html'
+#+end_example
+
 
 
 * Feedback & Discussion

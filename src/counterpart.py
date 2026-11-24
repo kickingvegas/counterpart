@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 ## counterpart.py --- Open Texinfo URL in Emacs Info
 
 # Copyright (C) 2026 Charles Y. Choi
@@ -34,9 +36,10 @@ import os
 import sys
 from subprocess import call
 import re
-from urllib.parse import quote, unquote, urlencode
+from urllib.parse import quote, unquote, urlencode, urlsplit
+import argparse
 
-VERSION = "0.1.0"
+VERSION = "0.1.1-rc.1"
 
 use_scrim = True
 
@@ -57,7 +60,7 @@ def is_gnu_manual(urlpath):
 
     return result
 
-def cc_texinfo_urlpath_to_info(urlpath):
+def cpt_texinfo_urlpath_to_info(urlpath):
     "Convert urlpath to a Info node reference."
 
     manual = is_gnu_manual(urlpath)
@@ -83,34 +86,100 @@ def cc_texinfo_urlpath_to_info(urlpath):
 
     return node
 
-def cc_scrim_info_url(node):
+def cpt_scrim_info_url(node):
     "Wrap node into a Scrim info URL."
     params = { "node" : node }
     info_node = urlencode(params, quote_via=quote)
     url = "scrim://info?{0}".format(info_node)
     return url
 
-def cc_open_info_via_emacsclient(urlpath):
+def cpt_open_info_via_emacsclient(urlpath):
     "Open urlpath in emacsclient."
     emacsclient_exec = os.path.join(
         emacsclient_path,
         "emacsclient")
-    node = cc_texinfo_urlpath_to_info(urlpath)
+    node = cpt_texinfo_urlpath_to_info(urlpath)
     url = "(info \"{0}\")".format(node)
     sys.stdout.write("{0}\n".format(url))
     call([emacsclient_exec, "-e", url])
 
-def cc_open_info_via_scrim(urlpath):
+def cpt_open_info_via_scrim(urlpath):
     "Open urlpath in scrim."
-    node = cc_texinfo_urlpath_to_info(urlpath)
-    url = cc_scrim_info_url(node)
+    node = cpt_texinfo_urlpath_to_info(urlpath)
+    url = cpt_scrim_info_url(node)
     sys.stdout.write("{0}\n".format(url))
     call(["open", url])
 
-if __name__ == "__main__":
-    urlpath = sys.argv[1]
 
-    if use_scrim:
-        cc_open_info_via_scrim(urlpath)
+def cpt_parse_args(args):
+    "Parse command line arguments args."
+    parser = argparse.ArgumentParser(
+                    prog='counterpart',
+                    description='Convert Texinfo web page reference to Info node.',
+                    epilog='')
+
+    parser.add_argument('reference',
+                        help='Either URL path or URL.')
+
+    parser.add_argument('-v', '--version',
+                        action='version',
+                        version=VERSION,
+                        help='print version information and exit')
+
+    parser.add_argument('-s', '--shortcut',
+                        action=argparse.BooleanOptionalAction,
+                        default=True,
+                        help='If set, run as if invoked via macOS Shortcut.')
+
+    parser.add_argument('-e', '--execute',
+                        action=argparse.BooleanOptionalAction,
+                        default=False,
+                        help=('Open counterpart reference. '
+                              'Only valid when --no-shortcut is used.'))
+
+    parser.add_argument('-p', '--path',
+                        type=str,
+                        default=emacsclient_path,
+                        help=('Path to emacsclient. '
+                              'Only valid when --no-shortcut is used.'))
+
+    parser.add_argument('-t', '--target',
+                        choices=['scrim', 'info'],
+                        default='info',
+                        help=('Target format. '
+                              'Only valid when --no-shortcut is used.'))
+
+    return parser.parse_args(args)
+
+
+if __name__ == "__main__":
+    args = cpt_parse_args(sys.argv[1:])
+
+    if args.reference.find("http") == 0:
+        url = urlsplit(args.reference)
+        urlpath = url.path
     else:
-        cc_open_info_via_emacsclient(urlpath)
+        urlpath = args.reference
+
+    if args.shortcut:
+        if use_scrim:
+            cpt_open_info_via_scrim(urlpath)
+        else:
+            cpt_open_info_via_emacsclient(urlpath)
+
+    else:
+        node = cpt_texinfo_urlpath_to_info(urlpath)
+        if args.target == 'scrim':
+            url = cpt_scrim_info_url(node)
+            if args.execute:
+                call(["open", url])
+
+        elif args.target == 'info':
+            url = "(info \"{0}\")".format(node)
+            if args.execute:
+                emacsclient_exec = os.path.join(
+                    args.path,
+                    "emacsclient")
+                call([emacsclient_exec, "-e", url])
+
+        sys.stdout.write("{0}\n".format(url))
